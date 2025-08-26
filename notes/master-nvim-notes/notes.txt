@@ -1,0 +1,63 @@
+   ┌──────────────────┐
+   │system()  function│
+   ├──────────────────┴───────────────────────────────────────────────────────────────────┐
+   │En nvim tenemos la funcion system la cual nos permite utilizar cualquier              │
+   │utilidad de la linea de comandos .                                                    │
+   │Esta funcion no es bloqueante                                                         │
+   │                                                                                      │
+   │vim.system({'ls'}, {}, function(opt))                                                 │
+   │    --do something                                                                    │
+   │end                                                                                   │
+   │                                                                                      │
+   │system()  correr en un threat aparte del threat de nvim                               │
+   │                                                                                      │
+   │nvim-thread      system()                                                             │
+   │  ▲   ▲            ▲   ▲                                                              │
+   │ ┌┴───┴┐          ┌┴───┴┐                                                             │
+   │◄┤     ├►        ◄┤     ├►                                                            │
+   │ └┬───┬┘          └┬───┬┘                                                             │
+   │  ▼   ▼            ▼   ▼                                                              │
+   │                                                                                      │
+   │Un caso de uso para esta funcionalidad seria automatizar con un comando               │
+   │creando por nosotros mismos para poner en marcha un server o compilar algun           │
+   │archivo                                                                               │
+   │   ┌────────┐                                                                         │
+   │   │code.lua│                                                                         │
+   │   │───────────────────────────────────────────────────────────────────────◄────┐     │
+   │   │local job = nil                                                             │     │
+   │   │                                                                            │     │
+   │   │vim.api.nvim_create_user_command("ArtisanServerStart", function ()          │     │
+   │   │   job = vim.system({"php", "artisan", "server"}, {}, function (out)        │     │
+   │   │    vim.print("Process ended ", out.code)                                   │     │
+   │   │   end)                                                                     │     │
+   │   │end, {})                                                                    │     │
+   │   │                                                                            │     │
+   │   │vim.api.nvim_create_user_command("ArtisanServerStop", function ()           │     │
+   │   │  job:kill(15)                                                              │     │
+   │   │end, {})                                                                    │     │
+   │   │                                                                            │     │
+   │   │vim.keymap.set({"n"}, "<leader><leader>la", ":ArtisanServerStart <cr>", {}) │     │
+   │   │vim.keymap.set({"n"}, "<leader><leader>ls", ":ArtisanServerStop <cr>", {})  │     │
+   │   └───────────────────────────────────────────────────────────────────────┴────┘     │
+   │                                                                                      │
+   │   ┌─────────────────────────────────────────────────────┐                            │
+   │   │NOTA :                                               │                            │
+   │   │"<cr>" significa car-return , es equivalente al enter│                            │
+   │   └─────────────────────────────────────────────────────┘                            │
+   │                                                                                      │
+   └──────────────────────────────────────────────────────────────────────────────────────┘
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+Replace ocurrence inside the document.
+:%s/old/new/gc
+
+Paste the name of current file
+"%p
+
+
+list = {
+    "name", 
+   "name", 
+   "name", 
+   "name", 
+  "name3", 
+   name2
+
+
+} 
