@@ -13,3 +13,15 @@ the dierction of the selection for example :
 ```
 we press v to enter on visual mode the select all the block
 of text , now press o to control the direction
+
+## navigate in link or tags
+prees ***shift + k*** 
+
+## Print properti of some table 
+prees ***:lua =properti***
+
+## Run a line or block of code into nvim
+to run a line or block only need yank de line or block also we can do this too, selecting the line or block of code
+an run ***:source % ***
+
+2 + 3

@@ -19,7 +19,8 @@ return {
             }
 
             require('telescope').load_extension('fzf')
-
+            vim.keymap.set("n", "<space>fb", require('telescope.builtin').git_branches) --show the branches in the proyect
+            vim.keymap.set("n", "<space>fg", require('telescope.builtin').buffers)
             vim.keymap.set("n", "<space>fh", require('telescope.builtin').help_tags)
             vim.keymap.set("n", "<space>fd", require('telescope.builtin').find_files)
             vim.keymap.set("n", "<space>ne", function()

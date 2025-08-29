@@ -50,6 +50,9 @@ vim.keymap.set("n", "f", "$", {
     noremap = true,
     desc = "go to end of the line"
 })
+-- source file
+vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>")
+
 --create a new file
 --vim.keymap.set("n", "<leader>e", ":e")
 

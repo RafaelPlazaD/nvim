@@ -14,6 +14,15 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end,
 })
 
+--highlight when yanking text
+vim.api.nvim_create_autocmd('TextYankPost', {
+    desc = 'highlight when copy text',
+    group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+    callback = function()
+        vim.highlight.on_yank()
+    end
+})
+
 function _G.Toggle_venn()
     local venn_enabled = vim.inspect(vim.b.venn_enabled)
     if venn_enabled == "nil" or venn_enabled == "false" then
